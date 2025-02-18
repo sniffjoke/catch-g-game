@@ -9,14 +9,16 @@ describe('NumberUtility', () => {
     })
 
     test('should return a number between min and max (inclusive)', () => {
-        const min = 1;
-        const max = 10;
-        const randomNumber = numberUtility.getRandomNumber(min, max);
-        expect(randomNumber).toBeGreaterThanOrEqual(min);
-        expect(randomNumber).toBeLessThanOrEqual(max);
+        for (let i = 0; i < 100; i++) {
+            const min = 1;
+            const max = 10;
+            const randomNumber = numberUtility.getRandomNumber(min, max);
+            expect(randomNumber).toBeGreaterThanOrEqual(min);
+            expect(randomNumber).toBeLessThanOrEqual(max);
+        }
     })
 
-    test('should return the same value when min queals max', () => {
+    test('should return the same value when min equals max', () => {
         const min = 5;
         const max = 5;
         const randomNumber = numberUtility.getRandomNumber(min, max);
