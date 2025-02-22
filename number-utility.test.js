@@ -8,27 +8,27 @@ describe('NumberUtility', () => {
         numberUtility = new NumberUtility();
     })
 
-    test('should return a number between min and max (inclusive)', () => {
+    test('should return a number between min and max (inclusive)', async () => {
         for (let i = 0; i < 100; i++) {
             const min = 1;
-            const max = 10;
-            const randomNumber = numberUtility.getRandomNumber(min, max);
+            const max = 3;
+            const randomNumber = await numberUtility.getRandomNumber(min, max);
             expect(randomNumber).toBeGreaterThanOrEqual(min);
             expect(randomNumber).toBeLessThanOrEqual(max);
         }
     })
 
-    test('should return the same value when min equals max', () => {
+    test('should return the same value when min equals max', async () => {
         const min = 5;
         const max = 5;
-        const randomNumber = numberUtility.getRandomNumber(min, max);
+        const randomNumber = await numberUtility.getRandomNumber(min, max);
         expect(randomNumber).toBe(min);
     })
 
-    test('should return the same value when min queals max', () => {
+    test('should return the same value when min queals max', async() => {
         const min = -10;
         const max = -5;
-        const randomNumber = numberUtility.getRandomNumber(min, max);
+        const randomNumber = await numberUtility.getRandomNumber(min, max);
         expect(randomNumber).toBeGreaterThanOrEqual(min);
         expect(randomNumber).toBeLessThanOrEqual(max);
     })
